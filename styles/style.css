@@ -1,0 +1,85 @@
+.signup-box {
+    max-width: 800px;
+    width: 100%;
+    padding: 10px 15px !important;
+    margin: 5px auto;
+}
+/* offcanvas styles */
+.offcanvas-body ul li{
+    list-style: none;
+    /* margin-bottom: 30px; */
+}
+
+.offcanvas-body ul li a{
+    display: block;
+    /* color: aquamarine; */
+    font-size: 16px;
+    font-weight: 400px;
+    line-height: 1.5;
+    transform: all .4s ease;
+}
+.offcanvas-body ul li a:hover{
+    padding-left: 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: blue;
+}
+
+.zoom_numb{
+    font-family: 'Berlin Sans FB Demi' !important;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+}
+
+.bg-zoom{
+    background-color: #001c6c;
+}
+
+.text-zoom{
+    color: #001c6c;
+}
+.btn-zoom{
+    color: #fff;
+    background-color: #001c6c;
+}
+.btn-zoom:hover{
+    color: #fff;
+    background-color: #031341;
+}
+/* admin side navbar style */
+:root{
+    --offcanvas-width: 270px;
+    --topNavbarHeight: 56px;
+    }
+    .sidebar-nav {
+        width: var(--offcanvas-width);
+        overflow-y: scroll;
+    }
+    .sidebar-link{
+        display: flex;
+        align-items: center;
+    }
+    .sidebar-link .right-icon{
+        display: inline-flex;
+    }
+    .sidebar-link[aria-expanded="true"] .right-icon{
+        transform: rotate(180deg);
+        transition: all ease 0.25s;
+    }
+@media (min-width:992px) {
+    body{
+        overflow: auto !important;
+    }
+    .offcanvas-backdrop::before {
+        display: none !important;
+    }
+    main{
+        margin-left: var(--offcanvas-width);
+    }
+    .sidebar-nav{
+        transform: none;
+        visibility: visible !important;
+        top: var(--topNavbarHeight);
+        height: calc(100% - var(--topNavbarHeight));
+    }
+}
+

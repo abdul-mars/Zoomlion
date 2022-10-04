@@ -1,0 +1,15 @@
+Major Requirements
+1. Secure Logins and signups
+2. manage users
+3. consumer request for waste pickups
+4. manage waste catergory
+5. admin dashboard
+6. automated reminder to alert customer when payment is due
+7. momo payment method
+8. automated weekly, monthly and annually report for the company.
+9. generate printable report
+10. manage prices for waste catergory
+11. update user account
+12. add admin
+13 contact
+14 subscribtion

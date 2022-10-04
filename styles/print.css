@@ -1,0 +1,12 @@
+/* print page styles */
+@page{
+    size: A4;
+    margin: 0;
+}
+.printBtn, .header, .footer, .today, .this_week,.this_month{
+    display: none;
+    visibility: none;
+}
+.total{
+    background-color: #001c6c !important;
+}
