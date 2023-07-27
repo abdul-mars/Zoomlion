@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2022 at 09:42 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Jul 27, 2023 at 04:56 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,7 +35,7 @@ CREATE TABLE `admins` (
   `gender` varchar(10) NOT NULL,
   `role` tinyint(4) NOT NULL DEFAULT 1,
   `date_created` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admins`
@@ -63,7 +63,7 @@ CREATE TABLE `house_info` (
   `town` varchar(255) NOT NULL,
   `area` varchar(255) NOT NULL,
   `desc` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `house_info`
@@ -73,7 +73,6 @@ INSERT INTO `house_info` (`id`, `email`, `house_name`, `house_no`, `location`, `
 (3, 'testing@gmail.com', 'sangzee dooyili', 'z-104', 'kanvili', 'N-0000-6484', 'zolya', 'northern', 'mion', 'sang', 'zolya', 'Give A little description of your house'),
 (4, 'mustapha@gmail.com', 'Doo Yili', 'test 987', 'tamale islamic senior high school', 'n554', 'central mosque', 'northern region', 'nanton', 'jana', 'jana', 'Green painted gate'),
 (5, 'fatawu@gmail.com', 'sangdoyili', 'jn244', 'tamale technical university', 'n-00000-9876', 'central mosque', 'south', 'su\'ala', 'yekum', 'yanda', 'Give A little description of your house'),
-(6, 'again@gmail.com', 'test', '800 blk b', 'sakaaka', '', 'central mosqu', 'Northern region', 'tamale district', ' sakasaka', 'sakasaka', 'storey building with 4 floors'),
 (7, 'abdulmars1102@gmail.com', 'testing', 'debuging', 'josonayili', '', 'central mosque', 'northern region', 'sagnarigu', 'jisonayi', 'jisonayili', 'very beautiful house'),
 (8, 'user@user.com', 'user house', 'k 254a', 'tamale technical university', '', 'assembly hall', 'northern region', 'sagnarigu', 'tamale', 'tatu', 'red painted with blue gate facing east'),
 (9, 'testing7@user.com', 'tessdf', 'sfsfs', 'tamale technical university', '', 'ghg', 'ghgfhgf', 'ffghgh', 'ryry', 'hfhf', 'Give A little description of your house'),
@@ -94,7 +93,7 @@ CREATE TABLE `messages` (
   `read` tinyint(4) NOT NULL DEFAULT 0,
   `date_sent` date NOT NULL DEFAULT current_timestamp(),
   `time_sent` time NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `messages`
@@ -144,7 +143,7 @@ INSERT INTO `messages` (`id`, `name`, `email`, `message`, `read`, `date_sent`, `
 CREATE TABLE `newsletters` (
   `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `newsletters`
@@ -168,7 +167,7 @@ CREATE TABLE `notifications` (
   `email` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0,
   `read` tinyint(4) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `notifications`
@@ -195,7 +194,8 @@ INSERT INTO `notifications` (`id`, `reason_id`, `reason`, `email`, `status`, `re
 (19, 40, 'request', '', 1, 0),
 (20, 33, 'postpone', 'user@user.com', 1, 1),
 (21, 23, 'payment', '', 1, 0),
-(22, 41, 'request', '', 1, 0);
+(22, 41, 'request', '', 1, 0),
+(23, 42, 'request', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -209,7 +209,7 @@ CREATE TABLE `payments` (
   `for` varchar(255) NOT NULL,
   `amount` int(11) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `payments`
@@ -247,7 +247,7 @@ CREATE TABLE `pickup_requests` (
   `pay_method` varchar(255) NOT NULL,
   `amount` int(11) NOT NULL,
   `payed` tinyint(4) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pickup_requests`
@@ -284,7 +284,8 @@ INSERT INTO `pickup_requests` (`id`, `email`, `waste_type`, `waste_size`, `date`
 (37, 'user@user.com', 'Bio Waste', 30, '2022-09-02', 'Afternoon', 0, 'momo', 210, 1),
 (38, 'user@user.com', 'Non Hazardious', 23, '2022-09-10', 'Afternoon', 0, 'momo', 69, 1),
 (40, 'dgdfgf@df.com', 'Hazardious', 20, '2022-09-01', 'Evening', 0, 'momo', 100, 0),
-(41, 'user@user.com', 'Non Hazardious', 34, '2022-09-29', 'Evening', 0, 'momo', 102, 0);
+(41, 'user@user.com', 'Non Hazardious', 34, '2022-09-29', 'Evening', 0, 'momo', 102, 0),
+(42, 'mustapha@gmail.com', 'Hazardious', 23, '2023-07-27', 'Afternoon', 0, 'momo', 115, 0);
 
 -- --------------------------------------------------------
 
@@ -297,7 +298,7 @@ CREATE TABLE `price` (
   `waste_type` varchar(255) NOT NULL,
   `place_type` varchar(255) NOT NULL,
   `amout` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `price`
@@ -328,25 +329,24 @@ CREATE TABLE `userstable` (
   `token` varchar(255) NOT NULL,
   `role` tinyint(4) NOT NULL DEFAULT 0,
   `date_created` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `userstable`
 --
 
 INSERT INTO `userstable` (`id`, `email`, `surname`, `firstname`, `gender`, `phone`, `password`, `token`, `role`, `date_created`) VALUES
-(2, 'mustapha@gmail.com', 'abdul-rashid', 'mustapha', 'M', '0249393898', '4297f44b13955235245b2497399d7a93', '', 0, '2022-08-12'),
+(2, 'mustapha@gmail.com', 'abdul-rashid', 'mustapha', 'M', '0249393898', '25f9e794323b453885f5181f1b624d0b', '', 0, '2022-08-12'),
 (4, 'fatawu@gmail.com', 'fatawu', 'issah', 'F', '0249393898', '4297f44b13955235245b2497399d7a93', '', 0, '2022-08-12'),
 (14, 'illiasu@gmail.com', 'abubakari', 'Illiasu', 'M', '345646756767', '10f7df2451ae3f3c02d31cbd1ee825f8', '', 1, '2022-08-18'),
-(17, 'testing4@gmail.com', 'testing', 'testing', 'F', '0325588955', '', 'i09Nsrd7', 1, '2022-08-19'),
-(18, 'again@gmail.com', 'testing ', 'again', 'f', '35465768798', '02c75fb22c75b23dc963c7eb91a062cc', '', 0, '2022-08-19'),
 (19, 'abdulmars1102@gmail.com', 'Mustapha', 'Abdul-Rashid', 'm', '0551731827', '4297f44b13955235245b2497399d7a93', '', 0, '2022-08-20'),
 (20, 'admin@admin.com', 'admin', 'update testing', 'M', '124879621', '4297f44b13955235245b2497399d7a93', '', 1, '2022-08-21'),
 (21, 'user@user.com', 'User', 'Account', 'M', '0248565266', '4297f44b13955235245b2497399d7a93', '', 0, '2022-08-22'),
 (23, 'testing7@user.com', 'test', 'test', 'm', '021588756545', '4531e8924edde928f341f7df3ab36c70', '', 0, '2022-08-22'),
 (24, 'user2@user.com', 'user', 'test second', 'f', '02134564678', 'e10adc3949ba59abbe56e057f20f883e', '', 0, '2022-08-23'),
 (25, 'dgdfgf@df.com', 'ABDUL-RASHID', 'ghgfhgfh', 'm', '02155846511', '4531e8924edde928f341f7df3ab36c70', '', 0, '2022-09-01'),
-(26, 'sfsgf@dfd.cvgh', 'gff', 'dfgdfgdf', 'M', '5467567568', '02c75fb22c75b23dc963c7eb91a062cc', '', 1, '2022-09-01');
+(26, 'sfsgf@dfd.cvgh', 'gff', 'dfgdfgdf', 'M', '5467567568', '02c75fb22c75b23dc963c7eb91a062cc', '', 1, '2022-09-01'),
+(27, 'admin@user.com', 'admin', 'user', 'M', '1324567890', '25f9e794323b453885f5181f1b624d0b', '', 1, '2023-07-26');
 
 -- --------------------------------------------------------
 
@@ -359,7 +359,7 @@ CREATE TABLE `verif_code` (
   `email` varchar(255) NOT NULL,
   `code` varchar(15) NOT NULL,
   `time` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -457,7 +457,7 @@ ALTER TABLE `newsletters`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -469,7 +469,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `pickup_requests`
 --
 ALTER TABLE `pickup_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `price`
@@ -481,7 +481,7 @@ ALTER TABLE `price`
 -- AUTO_INCREMENT for table `userstable`
 --
 ALTER TABLE `userstable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `verif_code`
